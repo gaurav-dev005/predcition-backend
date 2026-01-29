@@ -11,13 +11,14 @@ modelDataRouter.post('/update' , async(req  , res)=>{
                                            const resp = await statusModel
                                                               .updateOne({geohash:p.geohash} ,
                                                                           { $set:{
-                                                                              [`${p.cal_type}.risk_percentage`]:p.risk_percentage ,
-                                                                              [`${p.cal_type}.updated_at`] :    generated_at
+                                                                              [`${cal_type}.risk_percentage`]:p.risk_percentage ,
+                                                                              [`${cal_type}.updated_at`] :    generated_at
                                                                              }
                                                                                         
                                                                                                   })
                                             console.log(resp)
-                                           console.log('Updated DB with model data '+ `${p.cal_type}`) ;
+                                       
+                                           console.log('Updated DB with model data '+ `${cal_type}`) ;
                                            res.json({
                                                'message' : 'Post request succesfull , DB updated' 
                                            })                                                       
