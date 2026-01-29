@@ -1,0 +1,22 @@
+{
+  "name": "prediction_backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1" ,
+    "setup": "node ./setup/fetchArea.js" ,
+    "start" : "node index.js" ,
+    "dev" : "nodemun index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "fs": "^0.0.1-security",
+    "mongoose": "^9.1.5",
+    "ngeohash": "^0.6.3"
+  }
+}
