@@ -19,9 +19,7 @@ modelDataRouter.post('/update' , async(req  , res)=>{
                                             console.log(resp)
                                        
                                            console.log('Updated DB with model data '+ `${cal_type}`) ;
-                                           res.json({
-                                               'message' : 'Post request succesfull , DB updated' 
-                                           })                                                       
+                                                                                               
                                    }
                                    catch(err){
                                                  res.status(404).json({
@@ -29,6 +27,9 @@ modelDataRouter.post('/update' , async(req  , res)=>{
                                                  }) 
                                    }
                            }
+                             res.json({
+                                               'message' : 'Post request succesfull , DB updated' 
+                                           }) 
                   })
 
     module.exports = {  modelDataRouter}              
