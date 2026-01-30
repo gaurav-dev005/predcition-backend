@@ -1,0 +1,6 @@
+//dependencies
+express
+mongoose
+dotenv
+ngeohash
+nodemun
