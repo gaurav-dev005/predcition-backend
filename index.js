@@ -1,6 +1,6 @@
 require("dotenv").config();
 const express = require('express') ;
-const { statusRouter } = require('./routes/status') ;
+const { statusRouter } = require('./routes/status') ; //calling royte handlers
 const {modelDataRouter} = require('./routes/modelData')
 const app = express() ;
 const { default: mongoose } = require('mongoose');
@@ -29,9 +29,9 @@ connectDB() ;
 app.use(express.json()) ;
 
 
-app.use('/api/v1/status' , statusRouter) ;
-app.use('/api/v1/model' , modelDataRouter) ;
+app.use('/api/v1/status' , statusRouter) ; //frontend calls
+app.use('/api/v1/model' , modelDataRouter) ; //model post request endpoint handler to update prediciton data periodically
 
 app.listen(3184, "0.0.0.0", () => {
-  console.log("Backend running on port 3184");
+
 });

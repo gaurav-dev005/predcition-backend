@@ -2,6 +2,9 @@
 
 const { areaModel  } = require('../db') ;
 
+
+//fetching districts(area) from database
+
 async function statusMiddleware(req , res ,next){
                    console.log(req.query) ;
                  const area = req.query.area.toLowerCase();

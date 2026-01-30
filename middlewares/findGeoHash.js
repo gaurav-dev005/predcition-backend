@@ -6,21 +6,20 @@ const geohash = require('ngeohash') ;
 
 
 
-
+//looks for data of each geohashes in  databse and then creates the response payload to send to frontend
 
 async function findGeoHash(req , res , next){
             
     try {
-                const cells = await statusModel.find({district_id:req.area_Id})
+                const cells = await statusModel.find({district_id:req.area_Id}) //calling for geohashes and details stored in database
                 console.log(cells.length) ;
                  const result = [] ;
-                // const dummy = [] ;
+               
                 for(let cell of cells){
                   
                        const [minLat , minLon , maxLat , maxLon] = geohash.decode_bbox(cell.geohash) ;
-                      // const { latitude , longitude } = geohash.decode(cell.geohash) ;
-                  //      console.log(lat , lon)
-                        // console.log(cell.updated_at)
+                       
+                       //creating response payload
                        result.push({
                                 bounds : {minLat , minLon , maxLat , maxLon},
                                 flood : {
@@ -37,16 +36,9 @@ async function findGeoHash(req , res , next){
                                
                         })
 
-                        // dummy.push({
-                        //         "district": "ImphalWest",
-                        //           "geohash": cell.geohash ,
-                        //             "lat": latitude,
-                        //              "lon": longitude
-                        // })
-                        // JSON.stringify(dummy)
+           
                 }
-                  // console.log('dummy')
-                  // console.log(dummy) ;
+             
 
                 req.status = result ;
                 console.log(result) ;

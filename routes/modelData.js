@@ -3,10 +3,10 @@ const {statusModel} = require('../db') ;
 const modelDataRouter = Router() ;
 
 modelDataRouter.post('/update' , async(req  , res)=>{
-                const { cal_type , generated_at , predictions} = req.body ;
+                const { cal_type , generated_at , predictions} = req.body ; //retreiving data from request body of model request body
                 
                   for(const p of predictions){
-                          
+                                      //updating databse for each geohashes in databases
                                    try {
                                            const resp = await statusModel
                                                               .updateOne({geohash:p.geohash} ,

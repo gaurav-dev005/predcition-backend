@@ -6,6 +6,8 @@ const statusRouter = Router() ;
 
 const { statusMiddleware } = require('../middlewares/statusMiddleware') ;
 
+
+//frontend gfet request handling endpoint
 statusRouter.get('/info',  statusMiddleware , findGeoHash , async(req , res )=>{
                        res.json({
                             message :"status" ,
