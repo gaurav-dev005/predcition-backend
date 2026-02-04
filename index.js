@@ -4,6 +4,9 @@ const { statusRouter } = require('./routes/status') ; //calling royte handlers
 const {modelDataRouter} = require('./routes/modelData')
 const app = express() ;
 const { default: mongoose } = require('mongoose');
+const cors = require('cors') ;
+
+app.use(cors) ;
 
 
 
