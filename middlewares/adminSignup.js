@@ -3,6 +3,7 @@ const express = require('express') ;
 const z = require('zod') ;
 const bcrypt = require('bcrypt') ;
 const {adminModel} = require('../db') ;
+const JWT_SECRET_KEY = 'disaster_management_by_dataCrafters' ;
 
 async function adminSignup(req , res , next ){
         const {firstName, lastName , email , password } = req.body ;

@@ -1,12 +1,13 @@
 const express = require('express') ;
 
 const jwt = require('jsonwebtoken') ;
+const JWT_SECRET_KEY = 'disaster_management_by_dataCrafters' ;
 
 async function validateToken(req , res ){
-          const token = req.headers.token;
+          try{ const token = req.headers.token;
 
-         try{ 
-            const validateToken = await jwt.verify(token , process.env.JWT_SECRET_KEY) ;
+          
+            const validateToken = await jwt.verify(token , JWT_SECRET_KEY) ;
             console.log(validateToken) ;
               res.status(200).json({
                     message:'ok'

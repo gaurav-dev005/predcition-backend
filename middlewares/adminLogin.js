@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken') ;
 const bcrypt = require('bcrypt') ;
 const {adminModel} = require('../db') ;
 
-
+const JWT_SECRET_KEY = 'disaster_management_by_dataCrafters' ;
 
 
 
@@ -18,7 +18,7 @@ async function adminLogin(req , res ){
                           if(validatePass){
                                   const token = await jwt.sign({
                                               _id:resp._id
-                                  } , process.env.JWT_SECRET_KEY) ;
+                                  } , JWT_SECRET_KEY) ;
 
 
                                  res.status(200).json({
