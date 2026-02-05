@@ -5,6 +5,7 @@ const {modelDataRouter} = require('./routes/modelData')
 const app = express() ;
 const { default: mongoose } = require('mongoose');
 const cors = require('cors') ;
+const { adminRouter } = require('./routes/admin')  ;
 
 app.use(cors()) ;
 
@@ -33,7 +34,8 @@ app.use(express.json()) ;
 
 
 app.use('/api/v1/status' , statusRouter) ; //frontend calls
-app.use('/api/v1/model' , modelDataRouter) ; //model post request endpoint handler to update prediciton data periodically
+app.use('/api/v1/model' ,  modelDataRouter) ; //model post request endpoint handler to update prediciton data periodically
+app.use('/api/v1/admin' ,  adminRouter) ;
 
 app.listen(3184, "0.0.0.0", () => {
 

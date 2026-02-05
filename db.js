@@ -5,6 +5,13 @@ const mongoose = require('mongoose') ;
 const Schema = mongoose.Schema ;
 const ObjectId = mongoose.ObjectId ;
 
+const adminSchema =  new Schema({
+                 'firstName' : String ,
+                 'lastName' : String ,
+                 'email' : {type : String , unique : true},
+                 'password' : String ,
+                 
+})
 const areaSchema = new Schema({
              'district_name' : {type: String  , unique:true} ,
              "locat"         : {
@@ -45,7 +52,8 @@ const statusSchema  = ({
 
 const areaModel = mongoose.model('area' , areaSchema) ;
 const statusModel = mongoose.model('status' , statusSchema) ;
+const adminModel = mongoose.model('admin' , adminSchema) ;
 
 module.exports = {
-                  areaModel , statusModel 
+                  areaModel , statusModel , adminModel
 }
